@@ -8,6 +8,7 @@ fn main() -> std::io::Result<()> {
     file_name.to_string();
 
     create_file(file_name).expect("Something went wrong creating the file.");
+    // TODO add readme that explains each function in detail.
 
     let mut home_dir: PathBuf = env::current_dir()?;
     // TODO check if images folder is in rust folder or if it's 1 folder above.
@@ -37,10 +38,12 @@ fn write_to_file(file_name: &str) -> std::io::Result<()> {
 }
 
 fn move_files(start: PathBuf) -> std::io::Result<()> {
+    // TODO this join should be set to use user input rather current implementation.
     let new_path = Path::new(&start).join("folder_photos");
     println!("After adding photos dir: {:#?}", new_path.display());
     assert!(Path::new(&new_path).exists());
     // TODO copy images data into buffer
+    // TODO understand why we use buffer vs 'normal' copy
 
     // TODO move image data into blank folder named: folder_photos2
 
